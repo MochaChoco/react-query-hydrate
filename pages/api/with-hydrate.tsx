@@ -4,7 +4,6 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 async function getData(req: NextApiRequest, res: NextApiResponse) {
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery(["getListQuery"], getListApi, {
     retry: 0,
   });
@@ -12,8 +11,6 @@ async function getData(req: NextApiRequest, res: NextApiResponse) {
   const json = {
     dehydratedState: dehydrate(queryClient),
   };
-
-  console.log(json);
 
   res.send(json);
 }

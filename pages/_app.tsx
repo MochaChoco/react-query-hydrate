@@ -1,5 +1,4 @@
-import React, { useEffect, ReactElement, ReactNode } from "react";
-import { useRouter, NextRouter } from "next/router";
+import React, { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import {
@@ -18,9 +17,6 @@ type AppPropsWithLayout = AppProps & {
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
   const queryClient = new QueryClient();
-  const router = useRouter();
-
-  useEffect(() => {}, [router.pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
